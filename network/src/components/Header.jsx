@@ -2,7 +2,7 @@ import React from "react";
 import headerlogo from '../assets/icons/header-icon.svg'
 
 const Header = () => {
-    return (<div>
+    return (<div className="header">
         <img className={"header-logo"} src={headerlogo} alt="logo"/>
     </div>);
 }

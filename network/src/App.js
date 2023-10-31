@@ -1,15 +1,15 @@
 import './App.css';
 import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import Content from "./components/Content";
+import Navbar from "./components/Navbar";
+import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div>
+    <div className={'app-wrapper'}>
       <Header />
-      <Sidebar />
-      <Content />
+      <Navbar />
+      <Profile />
       <Footer />
     </div>
   );
