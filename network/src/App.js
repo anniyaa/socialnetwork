@@ -2,19 +2,28 @@ import './App.css';
 import './components/scss/app-wrapper.scss'
 import './components/scss/reset.scss'
 import './components/scss/variables.scss'
-import Header from "./components/header/Header";
-import Navbar from "./components/navbar/Navbar";
-import Profile from "./components/profile/Profile";
-import Footer from "./components/footer/Footer";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Profile from "./components/Profile/Profile";
+import Dialogs from "./components/Dialogs/Dialogs";
 
 const App = () => {
   return (
-    <div className={'app-wrapper'}>
-      <Header />
-      <Navbar />
-      <Profile />
-      <Footer />
-    </div>
+      <BrowserRouter>
+          <div className='app-wrapper'>
+              <Header />
+              <Navbar />
+              <div className='main-content'>
+                  <Routes>
+                      <Route path='/profile' element={<Profile/>}/>
+                      <Route path='/dialogs/*' element={<Dialogs/>}/>
+                  </Routes>
+              </div>
+              <Footer />
+          </div>
+      </BrowserRouter>
   );
 }
 

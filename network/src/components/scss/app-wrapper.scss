@@ -4,12 +4,16 @@ body {
 
   .app-wrapper {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 200px 500px 200px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
   "h h h"
-  "n p p"
+  "n m m"
   "f f f";
+
+    .main-content {
+      grid-area: m;
+    }
   }
 
 }
