@@ -8,8 +8,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
+import {updateNewPostText} from "./redux/state";
 
-const App = () => {
+const App = (props) => {
   return (
       <BrowserRouter>
           <div className='app-wrapper'>
@@ -17,8 +18,11 @@ const App = () => {
               <Navbar />
               <div className='main-content'>
                   <Routes>
-                      <Route path='/profile' element={<Profile/>}/>
-                      <Route path='/dialogs/*' element={<Dialogs/>}/>
+                      <Route path='/profile' element={<Profile state={props.appState.profilePage}
+                                                               addPost={props.addPost}
+                                                               updateNewPostText={props.updateNewPostText}
+                      />}/>
+                      <Route path='/dialogs/*' element={<Dialogs state={props.appState.messagesPage} />}/>
                   </Routes>
               </div>
               <Footer />

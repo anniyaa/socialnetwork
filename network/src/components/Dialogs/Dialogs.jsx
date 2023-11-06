@@ -5,15 +5,15 @@ import DialogMessage from "./DialogMessage/DialogMessage";
 
 const Dialogs = (props) => {
 
-    let dialogsData = [{id:1,name:'Nina'},{id:2,name:'Sam'},{id:3,name:'Veronica'},{id:4,name:'Katy'},
-                       {id:5,name:'Oscar'},{id:6,name:'Mary'}]
+    let dialogsDataElements = props.state.dialogsData.map(user=><DialogAuthor id={user.id} name={user.name} />)
 
-    let dialogsDataElements = dialogsData.map(user=><DialogAuthor id={user.id} name={user.name} />)
+    let messagesDataElements = props.state.messagesData.map(mes=><DialogMessage message={mes.message} id={mes.id}/>)
 
-    let messagesData = [{id:1,message:'Hello'},{id:1,message:'Are you here'},
-                        {id:1,message:'How are you here?'}]
-
-    let messagesDataElements = messagesData.map(mes=><DialogMessage message={mes.message} id={mes.id}/>)
+    let newMesElement = React.createRef();
+    let addMes = () => {
+        let text = newMesElement.current.value;
+        alert(text);
+    }
 
     return (
         <div className='dialogs'>
@@ -22,6 +22,8 @@ const Dialogs = (props) => {
                     {dialogsDataElements}
                 </ul>
             </div>
+            <textarea ref={newMesElement} name="" id="" cols="10" rows="3"></textarea>
+            <button onClick={addMes}>post</button>
             <div className='dialog__messages'>
                 <div className='dialog__messages'>
                     {messagesDataElements}

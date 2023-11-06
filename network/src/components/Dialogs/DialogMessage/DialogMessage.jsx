@@ -2,7 +2,9 @@ import React from "react";
 import './DialogMessage.scss';
 
 const DialogMessage = (props) => {
-    return <p>{props.message}</p>
+    return (<div>
+        <p>{props.message}</p>
+    </div>)
 }
 
 export default DialogMessage;
