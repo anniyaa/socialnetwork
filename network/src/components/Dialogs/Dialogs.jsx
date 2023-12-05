@@ -2,6 +2,7 @@ import React from "react";
 import './Dialogs.scss'
 import DialogAuthor from "./DialogAuthor/DialogAuthor";
 import DialogMessage from "./DialogMessage/DialogMessage";
+import {addNewMessageCreator, updateNewMessagesBodyCreator} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
 
@@ -10,9 +11,14 @@ const Dialogs = (props) => {
     let messagesDataElements = props.state.messagesData.map(mes=><DialogMessage message={mes.message} id={mes.id}/>)
 
     let newMesElement = React.createRef();
+
     let addMes = () => {
+        props.dispatch(addNewMessageCreator());
+    }
+
+    let changeMes = () => {
         let text = newMesElement.current.value;
-        alert(text);
+        props.dispatch(updateNewMessagesBodyCreator(text));
     }
 
     return (
@@ -22,9 +28,11 @@ const Dialogs = (props) => {
                     {dialogsDataElements}
                 </ul>
             </div>
-            <textarea ref={newMesElement} name="" id="" cols="10" rows="3"></textarea>
-            <button onClick={addMes}>post</button>
             <div className='dialog__messages'>
+                <div className="dialog__inputs">
+                    <textarea onChange={changeMes} ref={newMesElement} name="" id="" cols="10" rows="3" placeholder={'Enter your message'} value={props.state.newMessageBody}/>
+                    <button className='dialog__inputs__btn' onClick={addMes}>post</button>
+                </div>
                 <div className='dialog__messages'>
                     {messagesDataElements}
                 </div>

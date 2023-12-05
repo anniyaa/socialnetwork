@@ -6,11 +6,11 @@ import Myposts from "./Myposts/Myposts";
 const Profile = (props) => {
 
     return (<div className="profile">
+
         <Aboutme />
-        <Myposts postData={props.state.postsData}
-                 addPost={props.addPost}
+        <Myposts posts={props.state.posts}
                  newPostText={props.state.newPostText}
-                 updateNewPostText={props.updateNewPostText}
+                 dispatch={props.dispatch}
                  />
     </div>);
 }

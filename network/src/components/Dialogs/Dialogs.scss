@@ -2,13 +2,5 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  .dialog__names {
-
-    .dialog__names-active {
-      font-weight: bold;
-    }
-
-  }
-
+  padding: 10px;
 }
