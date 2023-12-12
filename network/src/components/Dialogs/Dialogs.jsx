@@ -7,9 +7,9 @@ const Dialogs = (props) => {
 
     let state = props.dialogsPage;
 
-    let dialogsDataElements = state.dialogsData.map(user=><DialogAuthor id={user.id} name={user.name} />)
+    let dialogsDataElements = state.dialogsData.map(user=><DialogAuthor id={user.id} name={user.name} key={user.id} />)
 
-    let messagesDataElements =state.messagesData.map(mes=><DialogMessage message={mes.message} id={mes.id}/>)
+    let messagesDataElements =state.messagesData.map(mes=><DialogMessage message={mes.message} id={mes.id} key={mes.id}/>)
 
     let newMesElement = React.createRef();
 
