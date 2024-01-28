@@ -54,7 +54,7 @@ let mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount / 500,
+        totalUsersCount: state.usersPage.totalUsersCount / 250,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
     }
