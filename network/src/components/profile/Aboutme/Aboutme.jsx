@@ -1,10 +1,17 @@
 import React from "react";
 import './aboutme.scss'
 import ptica from "../../../assets/images/ptica.jpg";
+import Preloader from "../../common/Preloader";
 
-const Aboutme = () => {
+const Aboutme = (props) => {
+
+    if (!props.profile) {
+        return <Preloader />
+    }
+
     return (<div className="aboutme">
         <img className={'ptica-content'} src={ptica} alt=""/>
+        <img src={props.profile.photos.large}/>
         <p>About me</p>
     </div>);
 }

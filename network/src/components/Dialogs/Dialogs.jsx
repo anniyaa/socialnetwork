@@ -14,14 +14,12 @@ const Dialogs = (props) => {
     let newMesElement = React.createRef();
 
     let addMes = () => {
-        //props.store.dispatch(addNewMessageCreator());
         props.sendMessage();
     }
 
     let changeMes = () => {
         let text = newMesElement.current.value;
         props.updateNewMessageBody(text);
-        //props.store.dispatch(updateNewMessagesBodyCreator(text));
     }
 
     return (

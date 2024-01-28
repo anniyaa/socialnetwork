@@ -1,0 +1,71 @@
+.users-container {
+
+  display: flex;
+  flex-direction: column;
+
+  .users-pagination__buttons {
+    display: flex;
+    gap: 20px;
+
+    .pag-but__selected {
+
+      font-weight: bold;
+
+    }
+
+    div {
+      background-color: sandybrown;
+    }
+  }
+
+  .users-container__user {
+
+    display: flex;
+    gap: 20px;
+    border: 1px solid royalblue;
+    margin: 3px;
+
+    .user-bio {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .user-bio__photo {
+
+      }
+
+      .user-bio__btn {
+        width: 70px;
+        height: 25px;
+        background-color: #61dafb;
+        border: 1px solid #282c34;
+        border-radius: 8px;
+      }
+
+    }
+
+    .user-about {
+
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+  "n c"
+  "s c";
+
+      .user-about__name {
+        grid-area: n;
+      }
+
+      .user-about__status {
+        grid-area: s;
+      }
+
+      .user-about__city {
+        grid-area: c;
+      }
+
+    }
+
+  }
+}

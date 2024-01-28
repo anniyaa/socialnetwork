@@ -5,19 +5,16 @@ import MyPosts from "./Myposts/MyPosts";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
 
 const Profile = (props) => {
+    return (
 
-    return (<div className="profile">
+        <div className="profile">
 
-        <Aboutme />
+        <Aboutme profile={props.profile}/>
 
         <MyPostsContainer store={props.store} />
 
-    </div>);
+        </div>
+    );
 }
 
 export default Profile;
-
-//        <MyPosts posts={props.state.posts}
-//                  newPostText={props.state.newPostText}
-//                  dispatch={props.dispatch}
-//                  />

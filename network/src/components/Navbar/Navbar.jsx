@@ -11,6 +11,7 @@ const Navbar = () => {
                <li><NavLink to="/news" className = { navData => navData.isActive ? 'is-active': 'not-active' }>News</NavLink></li>
                <li><NavLink to="/music" className = { navData => navData.isActive ? 'is-active': 'not-active' }>Music</NavLink></li>
                <li><NavLink to="/settings" className = { navData => navData.isActive ? 'is-active': 'not-active' }>Settings</NavLink></li>
+               <li><NavLink to="/users" className = { navData => navData.isActive ? 'is-active': 'not-active' }>Users</NavLink></li>
            </ul>
        </nav>
     </div>);
