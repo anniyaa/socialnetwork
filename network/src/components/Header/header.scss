@@ -1,8 +1,14 @@
 .header {
   background-color: #E8F0F2;
   grid-area: h;
+  display: flex;
+  justify-content: space-between;
 
   .header-logo {
     width: 50px;
+  }
+
+  .login-block {
+
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import './aboutme.scss'
-import ptica from "../../../assets/images/ptica.jpg";
+import ptica from "../../../assets/images/ptica.jpg"; // <img className={'ptica-content'} src={ptica} alt=""/>
 import Preloader from "../../common/Preloader";
 
 const Aboutme = (props) => {
@@ -10,7 +10,6 @@ const Aboutme = (props) => {
     }
 
     return (<div className="aboutme">
-        <img className={'ptica-content'} src={ptica} alt=""/>
         <img src={props.profile.photos.large}/>
         <p>About me</p>
     </div>);
