@@ -10,6 +10,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NewsContainer from "./components/News/NewsContainer";
+import Login from "./components/Login/Login";
 
 const App = (props) => {
 
@@ -24,6 +25,7 @@ const App = (props) => {
                       <Route path='/dialogs/*' element={<DialogsContainer store={props.store} />}/>
                       <Route path='/users/' element={<UsersContainer store={props.store} />}/>
                       <Route path='/news/' element={<NewsContainer store={props.store}/>}/>
+                      <Route path='/login/' element={<Login store={props.store}/>}/>
                   </Routes>
               </div>
               <Footer />
