@@ -5,6 +5,7 @@ import axios from "axios";
 import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
     let pages = [];
@@ -28,37 +29,13 @@ let Users = (props) => {
 
                     {u.followed ? <button disabled={props.followingInProgress.some(id=>id===u.id)} onClick={() => {
 
-                            props.toggleFollowingProgress(true, u.id);
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,  {
-                                withCredentials: true,
-                                headers: {
-                                    "API-KEY" : "10d2082a-9f56-40ce-9528-57968065bbad"
-                                }
-                            })
-                                .then(response=>{
-                                    if (response.data.resultCode == 0) {
-                                        props.follow(u.id)
-                                    }
-                                    props.toggleFollowingProgress(false, u.id);
-                                });
+                            props.unfollow(u.id);
 
 
                         }} className='user-bio__btn'>unfollow</button>
                         : <button disabled={props.followingInProgress.some(id=>id===u.id)} onClick={() => {
 
-                            props.toggleFollowingProgress(true, u.id);
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                withCredentials: true,
-                                headers: {
-                                    "API-KEY" : "10d2082a-9f56-40ce-9528-57968065bbad"
-                                }
-                            })
-                                .then(response=>{
-                                    if (response.data.resultCode == 0) {
-                                        props.unfollow(u.id)
-                                    }
-                                    props.toggleFollowingProgress(false, u.id);
-                                });
+                            props.follow(u.id);
 
 
                         }} className='user-bio__btn'>follow</button>}

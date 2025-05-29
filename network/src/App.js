@@ -9,7 +9,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import News from "./components/News/News";
+import NewsContainer from "./components/News/NewsContainer";
 
 const App = (props) => {
 
@@ -23,7 +23,7 @@ const App = (props) => {
                       <Route path='/profile/:userId?' element={<ProfileContainer store={props.store} />}/>
                       <Route path='/dialogs/*' element={<DialogsContainer store={props.store} />}/>
                       <Route path='/users/' element={<UsersContainer store={props.store} />}/>
-                      <Route path='/news/' element={<News />}/>
+                      <Route path='/news/' element={<NewsContainer store={props.store}/>}/>
                   </Routes>
               </div>
               <Footer />

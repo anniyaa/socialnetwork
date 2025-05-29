@@ -10,6 +10,7 @@ const Aboutme = (props) => {
     }
 
     return (<div className="aboutme">
+
         <img src={props.profile.photos.large}/>
         <p>About me</p>
     </div>);

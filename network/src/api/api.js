@@ -1,4 +1,5 @@
 import axios from "axios";
+import {useEffect} from "react";
 
 const instance = axios.create({
     withCredentials: true,
@@ -15,10 +16,15 @@ export const usersAPI = {
                 return response.data
             })
     },
-    toFollow(id) {//доделать
-        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`,  {
-
-        })
-    }
+    follow(userId) {
+        return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
+    unfollow(userId) {
+        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
+    getProfile(userId) {
+        return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId);
+    },
 
 }
+

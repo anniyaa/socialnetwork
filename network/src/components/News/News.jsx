@@ -1,13 +1,16 @@
 import React from "react";
 import './news.scss';
 
-const News = (props) => {
+const News = ({articles}) => {
+
     return (
         <div className={'news'}>
             <ul>
-                <li>The first news</li>
-                <li>The second news</li>
-                <li>The third news</li>
+                {articles.map(({id, date, time, article})=>(
+                    <li key={id}>
+                        {date} {time} - {article}
+                    </li>
+                ))}
             </ul>
         </div>
     );
