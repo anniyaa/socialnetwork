@@ -1,0 +1,19 @@
+body {
+
+  background-color: #A2DBFA;
+
+  .app-wrapper {
+    display: grid;
+    grid-template-rows: 150px 800px 200px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+  "h h h"
+  "n m m"
+  "f f f";
+
+    .main-content {
+      grid-area: m;
+    }
+  }
+
+}
