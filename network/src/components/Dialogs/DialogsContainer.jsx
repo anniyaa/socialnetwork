@@ -5,6 +5,7 @@ import Dialogs from "./Dialogs";
 import {connect} from 'react-redux';
 import {Navigate} from "react-router-dom";
 import withAuthNavigate from "../../hoc/withAuthNavigate";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -23,8 +24,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let AuthNavigateComponent = withAuthNavigate(Dialogs)
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent);
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthNavigate,
+)(Dialogs);

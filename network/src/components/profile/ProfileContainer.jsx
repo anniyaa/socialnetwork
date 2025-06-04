@@ -7,6 +7,7 @@ import {getUserProfile} from "../../redux/profile-reducer";
 import {Navigate, useParams} from "react-router-dom";
 import {authAPI, usersAPI} from "../../api/api";
 import withAuthNavigate from '../../hoc/withAuthNavigate.js'
+import {compose} from "redux";
 
 
 function ProfileContainer(props){
@@ -27,13 +28,14 @@ function ProfileContainer(props){
     );
 
 }
-
-let AuthNavigateComponent = withAuthNavigate(ProfileContainer)
-
 let mapStateToProps = (state) => ({
         profile: state.profilePage.profile,
     }
 
 )
 
-export default connect(mapStateToProps,{getUserProfile})(AuthNavigateComponent);
+
+export default compose(
+    connect(mapStateToProps,{getUserProfile}),
+    withAuthNavigate,
+)(ProfileContainer);
