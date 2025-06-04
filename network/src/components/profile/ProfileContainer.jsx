@@ -14,7 +14,7 @@ function ProfileContainer(props){
 
     let {userId} = useParams();
     if (!userId) {
-        userId = '2';
+        userId = '30702';
     }
 
     useEffect(()=>{
@@ -37,5 +37,5 @@ let mapStateToProps = (state) => ({
 
 export default compose(
     connect(mapStateToProps,{getUserProfile}),
-    withAuthNavigate,
+    //withAuthNavigate,
 )(ProfileContainer);
