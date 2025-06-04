@@ -35,7 +35,7 @@ export const getAuthUserData = () => (dispatch) => {
                 let {id, email, login} = response.data.data;
                 dispatch(setAuthUserData(id, email, login));
             }
-        });
+        })
 }
 
 export default authReducer;

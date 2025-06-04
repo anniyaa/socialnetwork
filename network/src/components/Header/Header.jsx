@@ -4,6 +4,7 @@ import './header.scss'
 import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
+
     return (<div className="header">
         <img className={"header-logo"} src={headerlogo} alt="logo"/>
 

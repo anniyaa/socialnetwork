@@ -5,14 +5,15 @@ import axios from "axios";
 import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profile-reducer";
 import {Navigate, useParams} from "react-router-dom";
-import {usersAPI} from "../../api/api";
+import {authAPI, usersAPI} from "../../api/api";
+import withAuthNavigate from '../../hoc/withAuthNavigate.js'
 
 
 function ProfileContainer(props){
 
     let {userId} = useParams();
     if (!userId) {
-        userId = '30702';
+        userId = '2';
     }
 
     useEffect(()=>{
@@ -21,31 +22,18 @@ function ProfileContainer(props){
         }
     },[userId])
 
-    if (!props.isAuth) {
-        return <Navigate to="/login/" replace/>
-    }
-
     return (
         <Profile {...props} profile={props.profile}/>
     );
 
 }
 
+let AuthNavigateComponent = withAuthNavigate(ProfileContainer)
+
 let mapStateToProps = (state) => ({
         profile: state.profilePage.profile,
-        isAuth: state.auth.isAuth,
     }
 
 )
 
-export default connect(mapStateToProps,{getUserProfile})(ProfileContainer);
-
-/*
-    useEffect(()=>{
-        usersAPI.getProfile(userId)
-            .then(res=>{
-            props.setUserProfile(res.data)
-            })
-
-    }, [userId])
- */
+export default connect(mapStateToProps,{getUserProfile})(AuthNavigateComponent);
