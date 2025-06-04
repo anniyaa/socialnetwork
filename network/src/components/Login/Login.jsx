@@ -5,7 +5,7 @@ const Login = (props) => {
 
     return (
         <div className={'login'}>
-            LOGIN
+            Please Log In
         </div>
     );
 }

@@ -12,6 +12,7 @@ import Users from './Users';
 import './users.scss';
 import Preloader from "../common/Preloader";
 import {usersAPI} from "../../api/api";
+import withAuthNavigate from "../../hoc/withAuthNavigate";
 
 class UsersAPIComponent extends React.Component {
 
@@ -53,11 +54,11 @@ let mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, {
+export default withAuthNavigate(connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
     getUsers,
-})(UsersAPIComponent);
+})(UsersAPIComponent));
 
