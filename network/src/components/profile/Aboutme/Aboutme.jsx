@@ -12,7 +12,7 @@ const Aboutme = (props) => {
 
     return (<div className="aboutme">
 
-        <ProfileStatus status={'HEllo world!'}/>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         <img src={props.profile.photos.large}/>
         <p>About me</p>
 
