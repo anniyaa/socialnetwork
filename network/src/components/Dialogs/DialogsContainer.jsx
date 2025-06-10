@@ -1,6 +1,6 @@
 import React from "react";
 import './Dialogs.scss'
-import {addNewMessageCreator, updateNewMessagesBodyCreator} from "../../redux/dialogs-reducer";
+import {addNewMessageCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from 'react-redux';
 import {Navigate} from "react-router-dom";
@@ -15,11 +15,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageBody: (body) => {
-            dispatch(updateNewMessagesBodyCreator(body));
-        },
-        sendMessage: () => {
-            dispatch(addNewMessageCreator());
+        sendMessage: (newMessageBody) => {
+            dispatch(addNewMessageCreator(newMessageBody));
         },
     }
 }
