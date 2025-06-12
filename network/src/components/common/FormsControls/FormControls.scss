@@ -1,0 +1,13 @@
+.form-control {
+  input,
+  textarea {
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  &.error input,
+  &.error textarea{
+    border: 1px solid red;
+  }
+}
