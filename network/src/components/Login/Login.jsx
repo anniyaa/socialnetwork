@@ -6,10 +6,12 @@ import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import { Navigate } from 'react-router-dom';
+import './login.scss';
 
 const LoginForm = (props) => {
 
     const maxLength15 = maxLengthCreator(15);
+
 
     return (
         <form onSubmit={props.handleSubmit}>
@@ -22,6 +24,8 @@ const LoginForm = (props) => {
             <div>
                 <Field type={'checkbox'} name={'rememberMe'} component={Input}/> remember me
             </div>
+            {props.error && <div className={'form-summary-error'}>
+                {props.error} </div>}
             <div>
                 <button>Login</button>
             </div>
