@@ -14,7 +14,7 @@ function ProfileContainer(props){
 
     let {userId} = useParams();
     if (!userId) {
-        userId = '30702';//30702 : 2
+        userId = props.authorizedUserId;
     }
 
     useEffect(()=>{
@@ -37,6 +37,8 @@ function ProfileContainer(props){
 let mapStateToProps = (state) => ({
         profile: state.profilePage.profile,
         status: state.profilePage.status,
+        authorizedUserId: state.auth.userId,
+        isAuth: state.auth.isAuth,
     }
 
 )
