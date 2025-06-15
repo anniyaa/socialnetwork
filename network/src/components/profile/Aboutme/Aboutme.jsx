@@ -3,6 +3,7 @@ import './aboutme.scss'
 import ptica from "../../../assets/images/ptica.jpg"; // <img className={'ptica-content'} src={ptica} alt=""/>
 import Preloader from "../../common/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const Aboutme = (props) => {
 
@@ -12,7 +13,7 @@ const Aboutme = (props) => {
 
     return (<div className="aboutme">
 
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
         <img src={props.profile.photos.large}/>
         <p>About me</p>
 
