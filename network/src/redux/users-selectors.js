@@ -1,3 +1,4 @@
+import {createSelector} from "reselect";
 export const getUsers = (state) => {
     return state.usersPage.users;
 }
@@ -16,3 +17,9 @@ export const getIsFetching = (state) => {
 export const getFollowingInProgress = (state) => {
     return state.usersPage.followingInProgress;
 }
+export const getUsersSelector = (state) => {
+    return getUsers(state).filter(U=>true);
+}
+export const getUsersSuperSelector = createSelector([getUsers, getIsFetching], (users, isFetching)=>{
+    return users.filter(U=>true);
+})
