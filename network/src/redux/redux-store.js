@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, legacy_createStore as createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, legacy_createStore as createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import usersReducer from "./users-reducer";
@@ -18,7 +18,10 @@ const reducers = combineReducers({
     app: appReducer,
 });
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // настроили расширение редакс
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));   // настроили расширение редакс
+
+//const store = createStore(reducers, applyMiddleware(thunk)); так было до расширения redux
 
 window.store = store;
 
