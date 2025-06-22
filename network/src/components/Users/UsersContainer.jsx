@@ -40,7 +40,7 @@ class UsersAPIComponent extends React.Component {
             {this.props.isFetching ? <Preloader  /> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
-                   current={this.props.currentPage}
+                   currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}//.bind(this) если не будет работать
                    users={this.props.users}
                    follow={this.props.follow}
@@ -66,7 +66,7 @@ let mapStateToProps = (state) => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
-        totalUsersCount: getTotalUsersCount(state) / 250,
+        totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
