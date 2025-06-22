@@ -1,0 +1,31 @@
+.users-pagination__buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.pag-but {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+
+  &.pag-but__selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    cursor: default;
+    pointer-events: none;
+    font-weight: 700;
+  }
+}
