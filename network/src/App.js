@@ -9,13 +9,15 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import NewsContainer from "./components/News/NewsContainer";
 import Login from "./components/Login/Login";
 import {Component} from "react";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import {compose} from "redux";
 import Preloader from "./components/common/Preloader";
+import React, {Suspense, lazy} from "react";
+
+const NewsContainer = lazy(()=>import('./components/News/NewsContainer'))
 
 class App extends Component {
 
@@ -39,7 +41,14 @@ class App extends Component {
                             <Route path='/profile/:userId?' element={<ProfileContainer />}/>
                             <Route path='/dialogs/*' element={<DialogsContainer />}/>
                             <Route path='/users/' element={<UsersContainer />}/>
-                            <Route path='/news/' element={<NewsContainer />}/>
+                            <Route
+                                path='/news/'
+                                element={
+                                    <Suspense fallback={<Preloader />}>
+                                        <NewsContainer />
+                                    </Suspense>
+                                }
+                            />
                             <Route path='/login/' element={<Login />}/>
                         </Routes>
                     </div>
