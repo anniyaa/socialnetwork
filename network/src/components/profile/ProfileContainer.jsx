@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import './profile.scss'
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, updateStatus} from "../../redux/profile-reducer";
+import {getStatus, getUserProfile, updateStatus, savePhoto} from "../../redux/profile-reducer";
 import {useParams} from "react-router-dom";
 
 import {compose} from "redux";
@@ -14,6 +14,7 @@ function ProfileContainer(props){
     if (!userId) {
         userId = props.authorizedUserId;
     }
+    const isOwner = !userId || String(userId) === String(props.authorizedUserId);
 
     useEffect(()=>{
         if(userId) {
@@ -23,7 +24,14 @@ function ProfileContainer(props){
     },[userId])
 
     return (
-        <Profile {...props} profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+        <Profile
+            {...props}
+            isOwner={isOwner}
+            profile={props.profile}
+            status={props.status}
+            updateStatus={props.updateStatus}
+            savePhoto={props.savePhoto}
+        />
     );
 
 }
@@ -38,6 +46,6 @@ let mapStateToProps = (state) => ({
 
 
 export default compose(
-    connect(mapStateToProps,{getUserProfile, getStatus, updateStatus}),
+    connect(mapStateToProps,{getUserProfile, getStatus, updateStatus, savePhoto}),
     //withAuthNavigate,
 )(ProfileContainer);

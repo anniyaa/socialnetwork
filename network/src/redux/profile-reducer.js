@@ -1,10 +1,10 @@
-import {useEffect} from "react";
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 const DELETE_POST = 'DELETE-POST';
+const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
 let initialState = {
     posts: [
@@ -37,6 +37,9 @@ const profileReducer = (state = initialState, action) => {
         }
         case SET_USER_PROFILE: {
             return {...state, profile: action.profile}
+        }
+        case SAVE_PHOTO_SUCCESS: {
+            return {...state, profile:{...state.profile, photos: action.photos}}
         }
         case SET_STATUS: {
             return {...state, status: action.status}
@@ -76,5 +79,15 @@ export const updateStatus = (status) => async (dispatch) => {
         dispatch(setStatus(status))
     }
 }
+export const savePhoto = file => async (dispatch) => {
+    const response = await profileAPI.savePhoto(file)
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos))
+    }
+}
+export const savePhotoSuccess =(photos) => ({
+    type: SAVE_PHOTO_SUCCESS,
+    photos,
+})
 
 export default profileReducer;
