@@ -1,5 +1,4 @@
 import axios from "axios";
-import {useEffect} from "react";
 
 const instance = axios.create({
     withCredentials: true,
@@ -48,6 +47,9 @@ export let profileAPI = {
             }
         });
     },
+    saveProfile(profileData) {
+        return instance.put('profile', profileData);
+    }
 }
 
 
